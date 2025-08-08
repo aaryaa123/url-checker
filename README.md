@@ -1,59 +1,116 @@
 
-URL Existence Checker (TypeScript)
+# URL Checker
 
-A simple URL checker web app written in TypeScript with async URL existence validation and debounced calls.
+A simple TypeScript project that classifies URLs as files, folders, or not found using asynchronous mock logic. Includes unit tests for core modules like `mockServer` and `validators`.
 
 ---
 
-## How to Run This Project
+## Getting Started
 
-1. Clone the repository
+### Prerequisites
 
-   ```
-   git clone https://github.com/aaryaa123/url-checker.git
-   cd url-checker
-   ```
+- Node.js (version 14+ recommended)
+- npm (comes with Node.js)
 
-2. Install TypeScript globally (if needed)
+---
 
-   ```
-   npm install -g typescript
-   ```
+### Installation
 
-3. Compile TypeScript to JavaScript
+1. Clone the repository or download the source code.
 
-   ```
-   tsc
-   ```
+2. Install dependencies:
 
-   This compiles `.ts` files from `src/` into `.js` files in `dist/`.
+```
+npm install
+```
 
-4. Serve the project with a local server
+3. Compile TypeScript:
 
-   Install `live-server` globally if not installed:
+```
+npx tsc
+```
 
-   ```
-   npm install -g live-server
-   ```
+---
 
-   Then start the server from the project root:
+### Running the App
 
-   ```
-   live-server
-   ```
+Serve the project over a local HTTP server because ES modules require HTTP:
 
-5. Open the application
+```
+npm install -g live-server
+live-server
+```
 
-   After starting the server, open this URL in your browser:
+This will open the app in your default browser, typically at `http://127.0.0.1:8080/`.
 
-   ```
-   http://127.0.0.1:8080/index.html
-   ```
+---
 
-   You should see the URL input box.
+### Sample URLs to Try in the App
 
-6. Use the app
+When the app is running, you can test URLs like these to see how they are classified:
 
-   - Type a URL in the input box.
-   - Invalid URLs will show "Invalid URL format" immediately.
-   - Valid URLs will be checked asynchronously with results shown live.
+#### Valid URLs
+
+- `http://example.com/folder/`  
+  *(Detected as folder because it ends with `/`)*
+
+- `http://example.com/file.txt`  
+  *(Detected as file due to known extension `.txt`)*
+
+- `http://example.com/readme`  
+  *(Detected as file by default, no trailing slash or extension)*
+
+#### Invalid / Not Found URLs
+
+- `http://example.com/notfound`  
+  *(Simulated as not found due to keyword detection)*
+
+- `http://example.com/error404`  
+  *(Simulated as not found due to keyword detection)*
+
+- `invalid-url`  
+  *(Invalid URL format, simulated as not found)*
+
+---
+
+## Running Test Cases
+
+To run the test cases that cover `mockServer` and `validators` modules:
+
+1. Ensure dependencies are installed:
+
+```
+npm install
+```
+
+2. Run tests with:
+
+```
+npm test
+```
+
+or
+
+```
+npx jest
+```
+
+Tests run using Jest’s default Node environment.
+
+---
+
+## Project Structure
+
+```
+src/
+  ├── mockServer.ts      # Mock URL classification logic
+  ├── validators.ts      # Validation utilities
+  ├── constants.ts       # Constants like debounce delay
+  ├── dom.ts             # DOM helpers (not currently tested)
+  └── test/              # Jest test files
+
+dist/                    # Compiled JS output (gitignored)
+node_modules/            # npm dependencies (gitignored)
+```
+
+---
