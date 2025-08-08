@@ -1,10 +1,10 @@
 {
   "name": "url-checker",
   "version": "1.0.0",
-  "description": "",
+  "description": "URL Existence Checker (TypeScript)",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +12,7 @@
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "jest": "^30.0.5",
-    "ts-jest": "^29.4.1"
+    "ts-jest": "^29.4.1",
+    "typescript": "^5.9.2"
   }
 }

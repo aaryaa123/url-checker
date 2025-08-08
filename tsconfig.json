@@ -10,7 +10,7 @@
     "esModuleInterop": true,
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "types": [],
+    "types": ["jest", "node"],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
@@ -41,5 +41,6 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true
-  }
+  },
+  "include": ["src", "tests"]
 }

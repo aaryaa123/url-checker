@@ -1,19 +1,27 @@
 export async function mockCheckUrl(
   url: string
 ): Promise<{ exists: boolean; type: "file" | "folder" | null }> {
-  await new Promise((res) => setTimeout(res, 500)); // Simulate network latency
+  await new Promise((res) => setTimeout(res, 500));
 
-  // For"Not Found"
-  if (url.includes("notfound")) return { exists: false, type: null };
+  const lowerUrl = url.toLowerCase();
 
-  // Folder detection
-  if (url.endsWith("/")) return { exists: true, type: "folder" };
+  try {
+    new URL(url);
+  } catch {
+    return { exists: false, type: null };
+  }
 
-  // File detection by extension
-  if (/\.(txt|pdf|jpg|png|json)$/i.test(url)) {
+  if (lowerUrl.includes("notfound") || lowerUrl.includes("404")) {
+    return { exists: false, type: null };
+  }
+
+  if (url.endsWith("/")) {
+    return { exists: true, type: "folder" };
+  }
+
+  if (/\.(txt|pdf|jpg|jpeg|png|gif|json|html|js|css)$/i.test(url)) {
     return { exists: true, type: "file" };
   }
 
-  // Default — exists and is a file
   return { exists: true, type: "file" };
 }
