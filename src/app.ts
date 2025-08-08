@@ -28,7 +28,8 @@ function setupUrlChecker() {
       const result = await mockCheckUrl(val);
       if (result.exists) {
         updateStatus(
-          `URL exists (${result.type === "file" ? "File" : "Folder"})`
+          `URL exists (${result.type === "file" ? "File" : "Folder"})`,
+          "status valid"
         );
       } else {
         updateStatus("URL does not exist");
