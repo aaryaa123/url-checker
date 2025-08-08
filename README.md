@@ -108,6 +108,7 @@ src/
   ├── constants.ts       # Constants like debounce delay
   ├── dom.ts             # DOM helpers (not currently tested)
   └── test/              # Jest test files
+index.html
 
 dist/                    # Compiled JS output (gitignored)
 node_modules/            # npm dependencies (gitignored)
