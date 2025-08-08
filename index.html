@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>URL Existence Checker</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 400px;
+        margin: 2em auto;
+      }
+      input {
+        width: 100%;
+        padding: 0.5em;
+        font-size: 1em;
+      }
+      .status {
+        margin: 1em 0;
+      }
+      .status.invalid {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>URL Existence Checker</h3>
+    <input id="url-input" placeholder="Enter URL" />
+    <div class="status" id="status"></div>
+    <script type="module" src="dist/app.js"></script>
+  </body>
+</html>
