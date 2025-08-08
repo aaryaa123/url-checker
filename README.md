@@ -1,4 +1,3 @@
-
 # URL Checker
 
 A simple TypeScript project that classifies URLs as files, folders, or not found using asynchronous mock logic. Includes unit tests for core modules like `mockServer` and `validators`.
@@ -18,13 +17,19 @@ A simple TypeScript project that classifies URLs as files, folders, or not found
 
 1. Clone the repository or download the source code.
 
-2. Install dependencies:
+2. Navigate into the cloned project directory:
+
+```
+cd url-checker
+```
+
+3. Install dependencies:
 
 ```
 npm install
 ```
 
-3. Compile TypeScript:
+4. Compile TypeScript:
 
 ```
 npx tsc
@@ -52,24 +57,24 @@ When the app is running, you can test URLs like these to see how they are classi
 #### Valid URLs
 
 - `http://example.com/folder/`  
-  *(Detected as folder because it ends with `/`)*
+  _(Detected as folder because it ends with `/`)_
 
 - `http://example.com/file.txt`  
-  *(Detected as file due to known extension `.txt`)*
+  _(Detected as file due to known extension `.txt`)_
 
 - `http://example.com/readme`  
-  *(Detected as file by default, no trailing slash or extension)*
+  _(Detected as file by default, no trailing slash or extension)_
 
 #### Invalid / Not Found URLs
 
 - `http://example.com/notfound`  
-  *(Simulated as not found due to keyword detection)*
+  _(Simulated as not found due to keyword detection)_
 
 - `http://example.com/error404`  
-  *(Simulated as not found due to keyword detection)*
+  _(Simulated as not found due to keyword detection)_
 
 - `invalid-url`  
-  *(Invalid URL format, simulated as not found)*
+  _(Invalid URL format, simulated as not found)_
 
 ---
 
