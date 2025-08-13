@@ -19,9 +19,5 @@ export async function mockCheckUrl(
     return { exists: true, type: "folder" };
   }
 
-  if (/\.(txt|pdf|jpg|jpeg|png|gif|json|html|js|css)$/i.test(url)) {
-    return { exists: true, type: "file" };
-  }
-
   return { exists: true, type: "file" };
 }

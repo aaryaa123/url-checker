@@ -10,4 +10,5 @@ export function updateStatus(message: string, className = "status") {
   const el = getDivElement("status");
   el.textContent = message;
   el.className = className;
+  console.log(el.className);
 }
